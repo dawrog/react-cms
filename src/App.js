@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-
-let defaultTextColor = '#fff'
+ 
 let defaultStyle = {
-  color: defaultTextColor
-  
+  color: '#fff'
 };
 
 class Aggregate extends Component {
@@ -32,8 +29,8 @@ class Filter extends Component {
 class Tiles extends Component {
   render() {
     return (
-      <div style={{...defaultStyle, width: "25%", display: 'inline-block'}}>
-      <img />
+      <div style={{...defaultStyle, display: 'inline-block', width: "25%"}}>
+      <img alt="pic1"/>
       <h3>Tile Name</h3>
       <ul><li>Work</li>Hobby<li></li><li>Contact</li></ul>
       </div>
@@ -44,8 +41,8 @@ class Tiles extends Component {
 class App extends Component {
   render() {
     return (
-    <div className="App">
-        <h1>Title</h1>
+    <div className="App" style={{'text-align': 'center'}}>
+        <h1 style={{...defaultStyle, 'font-size': '54px'}}>Title</h1>
         <Aggregate/>
         <Aggregate/>
         <Filter/>
