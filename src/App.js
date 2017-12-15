@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Header from './components/Header'
  
 let defaultStyle = {
   color: '#fff'
@@ -43,6 +44,7 @@ class App extends Component {
     return (
     <div className="App" style={{'text-align': 'center'}}>
         <h1 style={{...defaultStyle, 'font-size': '54px'}}>Title</h1>
+        <Header />
         <Aggregate/>
         <Aggregate/>
         <Filter/>
