@@ -1,11 +1,54 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
 import "../App.css"
 
+let defaultStyle = {
+	color: "#fff"
+}
+
+let fakeServerData = {
+	user: {
+		name: "User",
+		projects: [
+			{
+				name: "Wordpress Site",
+				technologies: ["HTML", "PHP", "CSS", "jQuery"]
+			},
+			{
+				name: "Weather App",
+				technologies: ["JS", "HTML", "CSS"]
+			},
+			{
+				name: "React CMS",
+				technologies: ["JS", "React", "HTML", "Bootstrap"]
+			},
+			{
+				name: "HTML5 Game",
+				technologies: ["JS", "HTML", "CSS"]
+			}
+		]
+	}
+
+
+}
+
 export default class Projects extends Component {
+	constructor() {
+		super()
+		this.state = {serverData: {}}
+	}
+	componentDidMount() {
+		this.setState({serverData: fakeServerData})
+	}
 	render() {
 		return(
 			<div className="container-fluid text-center">
-				<div className="row">
+				<h1 style={{...defaultStyle, "font-size": "54px"}}>						{this.state.serverData.user && 
+					this.state.serverData.user.name}'s projects
+				</h1>
+				<Projects projects={this.state.serverData.user && 
+					this.state.serverData.user.name}/>
+				<br/><br/><br/><br/>
+				<div className="row">	
 					<h3>Project 1</h3>
 					<div className="col-md-5">
 						<p>Bear claw gingerbread pie cheesecake topping cookie chocolate cake. Tootsie roll carrot cake fruitcake marzipan cheesecake chocolate cake.Donut chocolate cake danish halvah fruitcake lollipop cake topping. Jelly-o bear claw pie sugar plum pudding chocolate bar gingerbread cotton candy pudding. Cake topping marshmallow. Powder gingerbread muffin sesame snaps cookie danish. Pudding candy croissant icing jujubes candy canes soufflé lemon drops biscuit. Macaroon sesame snaps tiramisu carrot cake. </p>
