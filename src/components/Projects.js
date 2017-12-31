@@ -45,9 +45,8 @@ export default class Projects extends Component {
 				<h1 style={{...defaultStyle, "font-size": "54px"}}>						{this.state.serverData.user && 
 					this.state.serverData.user.name}'s projects
 				</h1>
-				<Projects projects={this.state.serverData.user && 
-					this.state.serverData.user.name}/>
 				<br/><br/><br/><br/>
+				
 				<div className="row">	
 					<h3>Project 1</h3>
 					<div className="col-md-5">
