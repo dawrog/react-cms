@@ -42,6 +42,9 @@ export default class Projects extends Component {
 		}, 1000)
 	}
 	render() {
+		let allProjects = this.props.projects.reduce((projects, eachProject) => {	
+		}, [])
+		let totalTimeToFinish
 		return(
 			<div className="container-fluid text-center">
 				{this.state.serverData.user	?
