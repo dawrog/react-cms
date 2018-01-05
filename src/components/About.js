@@ -4,8 +4,7 @@ import "../App.css"
 export default class About extends Component {
 	render() {
 		return(
-            
-			<div className="container-fluid text-center">
+			<div className="container-fluid text-center" style={{"margin": "1%"}}>
 				<div className="row">
 					<h3>About Me</h3>
 					<p className="col-md-5">
