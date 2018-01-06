@@ -12,22 +12,22 @@ let fakeServerData = {
 			{
 				name: "Wordpress Site",
 				technologies: ["HTML", "PHP", "CSS", "jQuery"],
-				days: [{duration: 7}]
+				days: [{duration: 4}]
 			},
 			{
 				name: "Weather App", duration: 10,
 				technologies: ["JS", "HTML", "CSS"],
-				days: [{duration: 10}]
+				days: [{duration: 9}]
 			},
 			{
 				name: "React CMS", duration: 12,
 				technologies: ["JS", "React", "HTML", "Bootstrap"],
-				days: [{duration: 12}]
+				days: [{duration: 11}]
 			},
 			{
 				name: "HTML5 Game", duration: 16,
 				technologies: ["JS", "HTML", "CSS"],
-				days: [{duration: 16}]
+				days: [{duration: 22}]
 			}
 		]
 	}
@@ -49,7 +49,7 @@ export default class Projects extends Component {
 		let timeToEnd = this.props.projects.reduce((days, eachProject) => {
 			return days.concat(eachProject.days)
 		}, [])
-		/*let totalTimeToFinish = */
+		let totalTimeToFinish =
 		return	(
 			<div className="container-fluid text-center" style={{"margin": "1%"}}>
 				{this.state.serverData.user	?
