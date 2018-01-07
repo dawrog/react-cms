@@ -12,22 +12,38 @@ let fakeServerData = {
 			{
 				name: "Wordpress Site",
 				technologies: ["HTML", "PHP", "CSS", "jQuery"],
-				days: [{duration: 4}]
+				songs: [
+					{duration: 9322},
+					{duration: 1234},
+					{duration: 6669}
+				]
 			},
 			{
-				name: "Weather App", duration: 10,
+				name: "Weather App",
 				technologies: ["JS", "HTML", "CSS"],
-				days: [{duration: 9}]
+				songs: [
+					{duration: 9322},
+					{duration: 1234},
+					{duration: 6669}
+				]
 			},
 			{
-				name: "React CMS", duration: 12,
+				name: "React CMS",
 				technologies: ["JS", "React", "HTML", "Bootstrap"],
-				days: [{duration: 11}]
+				songs: [
+					{duration: 9322},
+					{duration: 1234},
+					{duration: 6669}
+				]
 			},
 			{
-				name: "HTML5 Game", duration: 16,
+				name: "HTML5 Game",
 				technologies: ["JS", "HTML", "CSS"],
-				days: [{duration: 22}]
+				songs: [
+					{duration: 9322},
+					{duration: 1234},
+					{duration: 6669}
+				]
 			}
 		]
 	}
@@ -40,16 +56,17 @@ export default class Projects extends Component {
 		super()
 		this.state = {serverData: {}}
 	}
+
 	componentDidMount() {
 		setTimeout(() =>{
 			this.setState({serverData: fakeServerData})
 		}, 1000)
 	}
 	render() {
-		let timeToEnd = this.props.projects.reduce((days, eachProject) => {
-			return days.concat(eachProject.days)
+		let timeToEnd = this.props.projects.reduce((songs, eachProject) => {
+			return songs.concat(eachProject.songs)
 		}, [])
-		let totalTimeToFinish =
+		/*let totalTimeToFinish = */
 		return	(
 			<div className="container-fluid text-center" style={{"margin": "1%"}}>
 				{this.state.serverData.user	?
@@ -59,6 +76,7 @@ export default class Projects extends Component {
 						</h1>
 						<h2>		
 							{this.state.serverData.user.projects.length} Projects
+							{this.props.projects.length} Projects
 						</h2>
 						<br/><br/><br/><br/>
 						<div className="row" >
