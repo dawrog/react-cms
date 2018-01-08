@@ -12,7 +12,7 @@ let fakeServerData = {
 			{
 				name: "Wordpress Site",
 				technologies: ["HTML", "PHP", "CSS", "jQuery"],
-				songs: [
+				days: [
 					{duration: 9322},
 					{duration: 1234},
 					{duration: 6669}
@@ -21,7 +21,7 @@ let fakeServerData = {
 			{
 				name: "Weather App",
 				technologies: ["JS", "HTML", "CSS"],
-				songs: [
+				days: [
 					{duration: 9322},
 					{duration: 1234},
 					{duration: 6669}
@@ -30,7 +30,7 @@ let fakeServerData = {
 			{
 				name: "React CMS",
 				technologies: ["JS", "React", "HTML", "Bootstrap"],
-				songs: [
+				days: [
 					{duration: 9322},
 					{duration: 1234},
 					{duration: 6669}
@@ -39,7 +39,7 @@ let fakeServerData = {
 			{
 				name: "HTML5 Game",
 				technologies: ["JS", "HTML", "CSS"],
-				songs: [
+				days: [
 					{duration: 9322},
 					{duration: 1234},
 					{duration: 6669}
@@ -47,7 +47,6 @@ let fakeServerData = {
 			}
 		]
 	}
-
 
 }
 
@@ -62,9 +61,10 @@ export default class Projects extends Component {
 			this.setState({serverData: fakeServerData})
 		}, 1000)
 	}
+	
 	render() {
-		let timeToEnd = this.props.projects.reduce((songs, eachProject) => {
-			return songs.concat(eachProject.songs)
+		let timeToEnd = this.props.projects.reduce((days, eachProject) => {
+			return days.concat(eachProject.days)
 		}, [])
 		/*let totalTimeToFinish = */
 		return	(
@@ -76,7 +76,6 @@ export default class Projects extends Component {
 						</h1>
 						<h2>		
 							{this.state.serverData.user.projects.length} Projects
-							{this.props.projects.length} Projects
 						</h2>
 						<br/><br/><br/><br/>
 						<div className="row" >
