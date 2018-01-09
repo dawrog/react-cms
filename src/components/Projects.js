@@ -96,6 +96,16 @@ export default class Projects extends Component {
 							{this.state.serverData.user.projects.length} Projects
 						</h2>
 						<br/><br/><br/><br/>
+
+						<div className="row" >
+				<h3>Project 1</h3>
+				<div className="col-md-5">
+					<p>Bear claw gingerbread pie cheesecake topping cookie chocolate cake. Tootsie roll carrot cake fruitcake marzipan cheesecake chocolate cake.Donut chocolate cake danish halvah fruitcake lollipop cake topping. Jelly-o bear claw pie sugar plum pudding chocolate bar gingerbread cotton candy pudding. Cake topping marshmallow. Powder gingerbread muffin sesame snaps cookie danish. Pudding candy croissant icing jujubes candy canes soufflé lemon drops biscuit. Macaroon sesame snaps tiramisu carrot cake. </p>
+								
+					<br/><br/><br/><br/>
+				</div>
+			</div>
+			
 						
 						{this.state.serverData.user.projects.map(project =>
 							<Projects />	
