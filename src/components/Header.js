@@ -12,7 +12,7 @@ export default class Header extends Component {
 		return(
 			<div className="container-fluid text-center">
 				<div className="page-header">
-					<h1>Dawid Rogal <small>Novice Frontend Dewelopah</small></h1>
+					<h1>Dawid Rogal <small>Frontend Developer</small></h1>
 					<Link to="/" className="col-md-2">Home</Link>
 					<Link to="/projects" className="col-md-2">Projects</Link>
 					<Link to="/contact" className="col-md-2">Contact Me!</Link>
