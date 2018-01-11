@@ -103,18 +103,6 @@ export default class Projects extends Component {
 	
 	render() {
 		
-		/*
-		let projectElements = []
-		if (this.state.serverData.user) {
-			this.state.serverData.user.projects.forEach(project => 
-				projectElements.push(<ProjectGenerator project={project}/>)
-				
-			for (let i = 0; i < this.state.serverData.user.projects.length; i++) {
-				let project = this.state.serverData.user.projects[i]
-				projectElements.push(<ProjectGenerator project={project}/>) 
-			)
-		}*/
-
 		return	(
 			<div className="container-fluid text-center" style={{"margin": "1%"}}>
 				{this.state.serverData.user	?
