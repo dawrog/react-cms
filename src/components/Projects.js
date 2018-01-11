@@ -13,36 +13,36 @@ let fakeServerData = {
 				name: "Wordpress Site",
 				technologies: ["HTML", "PHP", "CSS", "jQuery"],
 				days: [
-					{duration: 93},
-					{duration: 12},
-					{duration: 66}
+					{deadline: "11 listopada 2018", duration: 93},
+					{deadline: "24 marzec 2018", duration: 12},
+					{dedaline: "13 maj 2018", duration: 66}
 				]
 			},
 			{
 				name: "Weather App",
 				technologies: ["JS", "HTML", "CSS"],
 				days: [
-					{duration: 69},
-					{duration: 3},
-					{duration: 13}
+					{deadline: "11 listopada 2018", duration: 69},
+					{deadline: "24 marzec 2018", duration: 3},
+					{dedaline: "13 maj 2018", duration: 13}
 				]
 			},
 			{
 				name: "React CMS",
 				technologies: ["JS", "React", "HTML", "Bootstrap"],
 				days: [
-					{duration: 88},
-					{duration: 49},
-					{duration: 100}
+					{deadline: "11 listopada 2018", duration: 88},
+					{deadline: "24 marzec 2018", duration: 49},
+					{dedaline: "13 maj 2018", duration: 100}
 				]
 			},
 			{
 				name: "HTML5 Game",
 				technologies: ["JS", "HTML", "CSS"],
 				days: [
-					{duration: 23},
-					{duration: 6},
-					{duration: 3}
+					{deadline: "11 listopada 2018", duration: 23},
+					{deadline: "24 marzec 2018", duration: 6},
+					{dedaline: "13 maj 2018", duration: 3}
 				]
 			}
 		]
@@ -64,7 +64,8 @@ class ProjectGenerator extends Component {
 	render() {
 		return (
 			<div>
-				<h3>Project</h3>
+				<h3>{this.props.project.name}</h3>
+
 				<p>Bear claw gingerbread pie cheesecake topping cookie chocolate cake. Tootsie roll carrot cake fruitcake marzipan cheesecake chocolate cake.Donut chocolate cake danish halvah fruitcake lollipop cake topping. Jelly-o bear claw pie sugar plum pudding chocolate bar gingerbread cotton candy pudding. Cake topping marshmallow. Powder gingerbread muffin sesame snaps cookie danish. Pudding candy croissant icing jujubes candy canes soufflé lemon drops biscuit. Macaroon sesame snaps tiramisu carrot cake. </p>
 			</div>
 			
@@ -101,6 +102,19 @@ export default class Projects extends Component {
 	}
 	
 	render() {
+		
+		/*
+		let projectElements = []
+		if (this.state.serverData.user) {
+			this.state.serverData.user.projects.forEach(project => 
+				projectElements.push(<ProjectGenerator project={project}/>)
+				
+			for (let i = 0; i < this.state.serverData.user.projects.length; i++) {
+				let project = this.state.serverData.user.projects[i]
+				projectElements.push(<ProjectGenerator project={project}/>) 
+			)
+		}*/
+
 		return	(
 			<div className="container-fluid text-center" style={{"margin": "1%"}}>
 				{this.state.serverData.user	?
@@ -109,10 +123,10 @@ export default class Projects extends Component {
 							{this.state.serverData.user.name}'s projects
 						</h1>
 						<Aggregate projects={this.state.serverData.user.projects}/>
-
+				
 						{this.state.serverData.user.projects.map(project =>
 							<div style={{"width": "40%","float": "left", "margin": "5%", "text-align": "justify"}}>
-								<ProjectGenerator />
+								<ProjectGenerator project={project}/>
 								<div className="container-fluid text-center">
 									<DaysCounter projects={this.state.serverData.user.projects}/>
 								</div>
