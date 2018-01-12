@@ -14,8 +14,6 @@ let fakeServerData = {
 				technologies: ["HTML", "PHP", "CSS", "jQuery"],
 				days: [
 					{deadline: "11 listopada 2018", duration: 93},
-					{deadline: "24 marzec 2018", duration: 12},
-					{dedaline: "13 maj 2018", duration: 66}
 				]
 			},
 			{
@@ -23,8 +21,6 @@ let fakeServerData = {
 				technologies: ["JS", "HTML", "CSS"],
 				days: [
 					{deadline: "11 listopada 2018", duration: 69},
-					{deadline: "24 marzec 2018", duration: 3},
-					{dedaline: "13 maj 2018", duration: 13}
 				]
 			},
 			{
@@ -32,8 +28,6 @@ let fakeServerData = {
 				technologies: ["JS", "React", "HTML", "Bootstrap"],
 				days: [
 					{deadline: "11 listopada 2018", duration: 88},
-					{deadline: "24 marzec 2018", duration: 49},
-					{dedaline: "13 maj 2018", duration: 100}
 				]
 			},
 			{
@@ -41,8 +35,6 @@ let fakeServerData = {
 				technologies: ["JS", "HTML", "CSS"],
 				days: [
 					{deadline: "11 listopada 2018", duration: 23},
-					{deadline: "24 marzec 2018", duration: 6},
-					{dedaline: "13 maj 2018", duration: 3}
 				]
 			}
 		]
@@ -75,7 +67,8 @@ class ProjectGenerator extends Component {
 
 class DaysCounter extends Component {
 	render() {
-		let allDays = this.props.projects.reduce((days, eachProject) => {
+		let projects = this.props.projects
+		let allDays = projects.reduce((days, eachProject) => {
 			return days.concat(eachProject.days)
 		}, [])
 		let totalDuration = allDays.reduce((sum, eachDay) => {
@@ -84,7 +77,12 @@ class DaysCounter extends Component {
 		return (
 			<div>
 				<h2>{Math.round(totalDuration/60)} Days</h2>
-			</div> 
+				<ul>{projects.map(deadline =>
+					<li>{deadline.name}</li>
+				)}
+				</ul>
+			</div>
+		
 		) 
 	}
 } 
