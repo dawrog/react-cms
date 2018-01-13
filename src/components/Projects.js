@@ -52,6 +52,17 @@ class Aggregate extends Component {
 	}
 } 
 
+class Filter extends Component {
+	render() {
+		return (
+			<div style={defaultStyle}>
+				<img/>
+				<input type="text"/>
+			</div>
+		)
+	}
+}
+
 class ProjectGenerator extends Component {
 	render() {
 		return (
@@ -90,15 +101,21 @@ class DaysCounter extends Component {
 export default class Projects extends Component {
 	constructor() {
 		super()
-		this.state = {serverData: {}}
+		this.state = {
+			serverData: {},
+			filterString: ""
+		}
 	}
 
 	componentDidMount() {
 		setTimeout(() =>{
 			this.setState({serverData: fakeServerData})
 		}, 1000)
+		setTimeout(() =>{
+			this.setState({filterString: "weekly"})
+		}, 1000)
 	}
-	
+
 	render() {
 		
 		return	(
@@ -109,7 +126,7 @@ export default class Projects extends Component {
 							{this.state.serverData.user.name}'s projects
 						</h1>
 						<Aggregate projects={this.state.serverData.user.projects}/>
-				
+						<Filter/>
 						{this.state.serverData.user.projects.map(project =>
 							<div style={{"width": "40%","float": "left", "margin": "5%", "text-align": "justify"}}>
 								<ProjectGenerator project={project}/>
