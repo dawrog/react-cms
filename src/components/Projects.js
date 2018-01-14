@@ -57,9 +57,9 @@ class Filter extends Component {
 		return (
 			<div style={defaultStyle}>
 				<img/>
-				<input type="text"/>
+				<input type="text" onKeyUp={event => this.props.onTextChange(event.target.value)}/>
 			</div>
-		)
+		)	
 	}
 }
 
@@ -111,13 +111,13 @@ export default class Projects extends Component {
 		setTimeout(() =>{
 			this.setState({serverData: fakeServerData})
 		}, 1000)
-		setTimeout(() =>{
-			this.setState({filterString: "weekly"})
-		}, 1000)
 	}
 
 	render() {
-		
+		let playlistToRender = this.state.serverData.user ?this.state.serverData.user.projects.filter(project =>
+			project.name.toLowerCase().includes(
+				this.state.filterString.toLowerCase())
+		) : []
 		return	(
 			<div className="container-fluid text-center" style={{"margin": "1%"}}>
 				{this.state.serverData.user	?
@@ -125,13 +125,13 @@ export default class Projects extends Component {
 						<h1 style={{...defaultStyle, "font-size": "54px"}}>		
 							{this.state.serverData.user.name}'s projects
 						</h1>
-						<Aggregate projects={this.state.serverData.user.projects}/>
-						<Filter/>
-						{this.state.serverData.user.projects.map(project =>
+						<Aggregate projects={playlistToRender}/>
+						<Filter onTextChange={text => this.setState({filterString: text})}/>
+						{playlistToRender.map(project =>
 							<div style={{"width": "40%","float": "left", "margin": "5%", "text-align": "justify"}}>
 								<ProjectGenerator project={project}/>
 								<div className="container-fluid text-center">
-									<DaysCounter projects={this.state.serverData.user.projects}/>
+									<DaysCounter projects={playlistToRender}/>
 								</div>
 							</div>
 						)}
