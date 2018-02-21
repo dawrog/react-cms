@@ -1,6 +1,6 @@
-import React, { Component } from "react"
-import "./App.css"
-import Header from "./components/Header"
+import React, { Component } from 'react';
+import './App.css';
+import Header from './components/Header';
 
 class App extends Component {
 	render() {
@@ -8,9 +8,9 @@ class App extends Component {
 			<div className="App">
 				<Header />
 			</div>
-		)
+		);
 	}
 } 
 
-export default App 
+export default App; 
 

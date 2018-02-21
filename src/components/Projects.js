@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 
 let defaultStyle = {
-	color: '#fff'
+	color: '#fff',
 };
 
 let fakeServerData = {
@@ -108,6 +108,7 @@ export default class Projects extends Component {
 			project.name.toLowerCase().includes(
 				this.state.filterString.toLowerCase())
 		) : [];
+		let dayCounterStyle = {'width': '40%','float': 'left', 'margin': '5%', 'text-align': 'justify'};
 		return	(
 			<div className="container-fluid text-center" style={{'margin': '1%'}}>
 				{this.state.serverData.user	?
@@ -118,7 +119,7 @@ export default class Projects extends Component {
 						<Aggregate projects={playlistToRender}/>
 						<Filter onTextChange={text => this.setState({filterString: text})}/>
 						{playlistToRender.map(project =>
-							<div style={{'width': '40%','float': 'left', 'margin': '5%', 'text-align': 'justify'}}>
+							<div style={dayCounterStyle}>
 								<ProjectGenerator project={project}/>
 								<div className="container-fluid text-center">
 									<DaysCounter projects={playlistToRender}/>

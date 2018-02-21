@@ -1,11 +1,11 @@
-import React, { Component } from "react"
-import "../App.css"
+import React, { Component } from 'react';
+import '../App.css';
 
 import {
 	BrowserRouter as Router,
 	Route,
 	Link
-} from "react-router-dom"
+} from 'react-router-dom';
 
 export default class Header extends Component {
 	render() {
@@ -19,6 +19,6 @@ export default class Header extends Component {
 					<br/><br/><br/> 
 				</div>
 			</div>
-		)
+		);
 	}
 }

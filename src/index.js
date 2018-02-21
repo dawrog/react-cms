@@ -1,17 +1,17 @@
-import * as React from "react"
-import ReactDOM from "react-dom"
-import App from "./App"
+import * as React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
 
 import {
 	BrowserRouter as Router,
 	Route,
 	Link
-} from "react-router-dom"
+} from 'react-router-dom';
 
-import About from "./components/About"
-import Contact from "./components/Contact"
-import Header from "./components/Header"
-import Projects from "./components/Projects"
+import About from './components/About';
+import Contact from './components/Contact';
+import Header from './components/Header';
+import Projects from './components/Projects';
 
 ReactDOM.render(
 	<Router>
@@ -23,5 +23,5 @@ ReactDOM.render(
 		</div>
 	</Router>
 
-	, document.getElementById("root"))
+	, document.getElementById('root'));
 
