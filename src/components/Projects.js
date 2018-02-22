@@ -76,9 +76,14 @@ function DaysCounter( {projects} ) {
 	let totalDuration = allDays.reduce((sum, eachDay) => {
 		return sum + eachDay.duration;
 	}, 0);
+	let totalDurationDays = Math.round(totalDuration/60);
+	let isTooLow = totalDurationDays < 10;
+	let daysCounterStyle = {
+		color: isTooLow ? 'crimson' : 'white'
+	};
 	return (
-		<div>
-			<h2>{Math.round(totalDuration/60)} Days</h2>
+		<div style={daysCounterStyle}>
+			<h2>{totalDurationDays} Days</h2>
 			<ul>{projects.map(deadline =>
 				<li>{deadline.name}</li>
 			)}
@@ -104,25 +109,34 @@ export default class Projects extends Component {
 	}
 
 	render() {
-		let playlistToRender = this.state.serverData.user ?this.state.serverData.user.projects.filter(project =>
-			project.name.toLowerCase().includes(
-				this.state.filterString.toLowerCase())
-		) : [];
-		let dayCounterStyle = {'width': '40%','float': 'left', 'margin': '5%', 'text-align': 'justify'};
+		let projectToRender = this.state.serverData.user ?
+			this.state.serverData.user.projects.filter(project =>
+				project.name.toLowerCase().includes(
+					this.state.filterString.toLowerCase())
+			) : [];
+		let userNameStyle = {...defaultStyle, 'font-size': '54px'};
+		let projectGeneratorStyle = {
+			'width': '40%',
+			'float': 'left', 
+			'margin': '5%', 
+			'text-align': 'justify',
+			'background': this.props.index % 2 ? '' : '#808080'
+		};
+		
 		return	(
 			<div className="container-fluid text-center" style={{'margin': '1%'}}>
 				{this.state.serverData.user	?
 					<div>
-						<h1 style={{...defaultStyle, 'font-size': '54px'}}>		
+						<h1 style={userNameStyle}>		
 							{this.state.serverData.user.name}'s projects
 						</h1>
-						<Aggregate projects={playlistToRender}/>
+						<Aggregate projects={projectToRender}/>
 						<Filter onTextChange={text => this.setState({filterString: text})}/>
-						{playlistToRender.map(project =>
-							<div style={dayCounterStyle}>
-								<ProjectGenerator project={project}/>
+						{projectToRender.map((project, i) => 
+							<div style={projectGeneratorStyle}>
+								<ProjectGenerator project={project} index={i}/>
 								<div className="container-fluid text-center">
-									<DaysCounter projects={playlistToRender}/>
+									<DaysCounter projects={projectToRender}/>
 								</div>
 							</div>
 						)}
