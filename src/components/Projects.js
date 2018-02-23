@@ -79,14 +79,19 @@ function DaysCounter( {projects} ) {
 	let totalDurationDays = Math.round(totalDuration/60);
 	let isTooLow = totalDurationDays < 10;
 	let daysCounterStyle = {
-		color: isTooLow ? 'crimson' : 'white'
+		color: isTooLow ? 'crimson' : 'white',
+		'font-weight': isTooLow ? 'bold' : 'normal', 
+		fontSize: '20px'
 	};
 	return (
-		<div style={daysCounterStyle}>
-			<h2>{totalDurationDays} Days</h2>
-			<ul>{projects.map(deadline =>
-				<li>{deadline.name}</li>
-			)}
+		<div>
+			<div  style={daysCounterStyle}>
+				<h2>{totalDurationDays} Days</h2>
+			</div>
+			<ul style={{...defaultStyle, 'list-style-type': 'none', 'padding-left': 0}}>
+				{projects.map(project =>
+					<li>{project.technologies}</li>
+				)}
 			</ul>
 		</div>
 		
