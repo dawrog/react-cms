@@ -63,6 +63,10 @@ function ProjectGenerator( {project} ) {
 	return (
 		<div>
 			<h3>{project.name}</h3>
+			<ul style={{...defaultStyle, 'list-style-type': 'none', 'padding-left': 0}}>
+				<li>{project.technologies}</li>
+				)}
+			</ul>
 			<p>Bear claw gingerbread pie cheesecake topping cookie chocolate cake. Tootsie roll carrot cake fruitcake marzipan cheesecake chocolate cake.Donut chocolate cake danish halvah fruitcake lollipop cake topping. Jelly-o bear claw pie sugar plum pudding chocolate bar gingerbread cotton candy pudding. Cake topping marshmallow. Powder gingerbread muffin sesame snaps cookie danish. Pudding candy croissant icing jujubes candy canes soufflé lemon drops biscuit. Macaroon sesame snaps tiramisu carrot cake. </p>
 		</div>
 			
